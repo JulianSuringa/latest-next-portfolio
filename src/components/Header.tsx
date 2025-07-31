@@ -8,7 +8,8 @@ export default function Header() {
       <div className="text-2xl font-bold">
         <Link href="/">
           <div className="flex items-center flex-row">
-            <Logo initials="JS" size="md" variant="yellow" />
+            <Logo initials="JS" size="md" variant="orange" />
+            <span className=" hidden md:flex ml-2">Portfolio</span>
           </div>
         </Link>
       </div>

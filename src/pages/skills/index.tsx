@@ -3,12 +3,8 @@ import path from 'path'
 
 import fs from 'fs/promises'
 import Head from 'next/head'
+import { SkillItem } from '@/types/skills'
 
-type SkillType = {
-  title: string
-  date_created: string
-  description: string
-}
 export default function SkillPage({ data }: InferGetStaticPropsType<typeof getStaticProps>) {
   const { header, skills } = data
   if (!skills || skills.length === 0) {
@@ -25,12 +21,15 @@ export default function SkillPage({ data }: InferGetStaticPropsType<typeof getSt
       <Head>
         <title>Skills | JS</title>
       </Head>
-      <section className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-8">
+      <section className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-10">
         <div className="flex flex-col justify-center w-full max-w-7xl">
-          <h1 className="text-4xl font-bold mb-4">{header}</h1>
-          <p className="text-lg text-gray-600 mx-3 mb-8">Here are some of my skills:</p>
+          <h1 className="text-2xl font-bold mb-4 text-center">{header}</h1>
+          <p className="text-gray-600 mb-8 text-center">
+            Here are some of my skills that I have acquired over the years. Feel free to explore and
+            learn more about them.
+          </p>
           <ul className="flex flex-col divide-y divide-gray-200 px-4 py-2 space-y-2.5">
-            {skills.map((skill: SkillType, index: number) => (
+            {skills.map((skill: SkillItem, index: number) => (
               <li key={index} className="bg-white px-4 py-4 hover:bg-gray-50 transition rounded-md">
                 <h2 className="text-xl tracking-wide font-semibold text-gray-800">{skill.title}</h2>
                 <p className="text-md text-gray-400 mb-1 py-2">
@@ -41,11 +40,11 @@ export default function SkillPage({ data }: InferGetStaticPropsType<typeof getSt
             ))}
           </ul>
           <div className="max-w-2xl mx-auto text-center mt-12 px-4">
-            <p className="text-xl text-gray-800 font-medium mb-6">
+            <p className="text-md text-gray-800 font-medium mb-4">
               If you want to know more about my skills, feel free to contact me!
             </p>
 
-            <p className="text-xl text-gray-800 font-medium mb-6">
+            <p className="text-md text-gray-800 font-medium mb-4">
               You can also check out my{' '}
               <a href="/works" className="text-blue-600 hover:underline font-semibold">
                 works experience
@@ -53,7 +52,7 @@ export default function SkillPage({ data }: InferGetStaticPropsType<typeof getSt
               to see how I apply these skills.
             </p>
 
-            <p className="text-xl text-gray-800 font-medium mb-6">
+            <p className="text-md text-gray-800 font-medium mb-4">
               If you have any questions or want to discuss potential collaborations, please{' '}
               <a href="/contact" className="text-blue-600 hover:underline font-semibold">
                 contact me
@@ -61,7 +60,7 @@ export default function SkillPage({ data }: InferGetStaticPropsType<typeof getSt
               .
             </p>
 
-            <p className="text-xl text-gray-800 font-medium">
+            <p className="text-md font-semibold text-black dark:white mb-4">
               Thank you for visiting my skills page!
             </p>
           </div>

@@ -12,7 +12,7 @@ import { WorksData } from '@/types/works'
 import RecentSkills from '@/components/RecentSkills'
 
 export default function Home({
-  data,
+  banner,
   recentSkills,
   recentWorks,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
@@ -24,10 +24,7 @@ export default function Home({
         <title>Home | JS</title>
       </Head>
       <section>
-        <HeroBanner {...data} />
-        <p className="flex justify-center text-lg text-gray-600">
-          Explore my skills, works, and contact information.
-        </p>
+        <HeroBanner {...banner} />
         <RecentSkills {...recentSkills} />
       </section>
     </>
@@ -35,7 +32,7 @@ export default function Home({
 }
 
 export const getStaticProps: GetStaticProps<{
-  data: BannerData
+  banner: BannerData
   recentSkills: SkillsData
   recentWorks: WorksData
 }> = async () => {
@@ -60,7 +57,7 @@ export const getStaticProps: GetStaticProps<{
 
   return {
     props: {
-      data,
+      banner: data,
       recentWorks,
       recentSkills: { header: skillsData.header, skills: recentSkills },
     },

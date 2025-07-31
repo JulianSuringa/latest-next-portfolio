@@ -1,7 +1,7 @@
 interface LogoProps {
   initials?: string
   size?: 'sm' | 'md' | 'lg' | 'xl'
-  variant?: 'default' | 'minimal' | 'gradient' | 'yellow'
+  variant?: 'default' | 'minimal' | 'gradient' | 'yellow' | 'orange'
   className?: string
 }
 
@@ -24,6 +24,7 @@ export function Logo({
     gradient:
       'bg-gradient-to-br from-primary via-accent to-secondary text-primary-foreground border-2 border-primary/20',
     yellow: 'bg-yellow-400 text-black border-2 border-yellow-500',
+    orange: 'bg-orange-400 text-black border-2 border-orange-600',
   }
 
   return (

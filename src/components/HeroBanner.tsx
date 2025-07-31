@@ -8,7 +8,7 @@ export default function HeroBanner(data: BannerData) {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
         {/* Text Content */}
         <div className="flex-1">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h1 className="text-3xl md:text-[3.5rem] font-bold text-gray-900 dark:text-white mb-4">
             {data.hero.title}
           </h1>
           {data.hero.desc.map((text, index) => (

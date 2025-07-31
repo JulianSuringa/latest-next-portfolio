@@ -26,12 +26,12 @@ export function MainNav() {
           const isActive = exact ? router.pathname === href : router.pathname.startsWith(href)
 
           return (
-            <NavigationMenuItem key={href}>
+            <NavigationMenuItem key={href} className={cn(isActive && 'bg-accent rounded-md')}>
               <Link href={href} passHref>
                 <NavigationMenuLink
                   className={cn(
                     'px-4 py-2 transition-colors hover:text-blue-500',
-                    isActive && 'text-blue-600 font-semibold underline'
+                    isActive && 'text-blue-600 font-semibold'
                   )}
                 >
                   {label}
