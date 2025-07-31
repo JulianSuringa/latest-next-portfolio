@@ -22,7 +22,7 @@ export default function WorksPage({ worksData }: InferGetStaticPropsType<typeof 
       <Head>
         <title>Works history| JS</title>
       </Head>
-      <section className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-10">
+      <section className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-4 md:p-10">
         <div className="flex flex-col justify-center w-full max-w-7xl">
           <h1 className="text-2xl font-bold mb-4 text-center">{header}</h1>
           <p className="text-gray-600 mb-8 text-center">

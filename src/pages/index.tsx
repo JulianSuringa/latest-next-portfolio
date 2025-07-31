@@ -10,6 +10,7 @@ import { BannerData } from '@/types/banner'
 import { SkillsData } from '@/types/skills'
 import { WorksData } from '@/types/works'
 import RecentSkills from '@/components/RecentSkills'
+import RecentWorksHistory from '@/components/RecentWorksHistory'
 
 export default function Home({
   banner,
@@ -26,6 +27,7 @@ export default function Home({
       <section>
         <HeroBanner {...banner} />
         <RecentSkills {...recentSkills} />
+        <RecentWorksHistory {...recentWorks} />
       </section>
     </>
   )

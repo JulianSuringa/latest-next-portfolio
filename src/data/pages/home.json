@@ -1,6 +1,6 @@
 {
   "hero": {
-    "title": "I'm Julian Suringa, a front-end web developer.",
+    "title": "I'm Julian Suringa, a front-end developer.",
     "desc": [
      "I have experience in both front-end and back-end development. On the front end, I work with HTML, CSS (including SCSS, CSS Modules, CSS-in-JS, and Tailwind), and JavaScript with tools like React, Redux, Zustand, and TypeScript. On the back end, I use Node.js and databases such as MSSQL, PostgreSQL, MySQL, and MongoDB. I also have basic knowledge of Docker and React Native, and experience writing unit tests using Jest and React Testing Library. Additionally, I’ve worked on Android development, mainly fixing bugs using Kotlin and Java."
     ]
