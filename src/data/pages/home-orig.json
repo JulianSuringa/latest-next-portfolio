@@ -1,0 +1,8 @@
+{
+  "hero": {
+    "title": "I'm Julian Suringa, a front-end web developer.",
+    "desc": [
+      "Experience in front-end and back-end development technologies including advanced HTML/XHTML, CSS, SCSS, CSS Module, CSS-in-JS (styled component), JavaScript (cross-browser and cross-platform compatibility like AJAX, jQuery, React, Redux, Redux Saga, and Angular), typescript, and Node.js. And for databases, there are MSSQL, PostgreSQL, MySQL, and MongoDB."
+    ]
+  }
+}
