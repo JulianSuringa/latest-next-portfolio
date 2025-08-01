@@ -27,7 +27,9 @@ export default function RecentSkills({ header, skills }: SkillsData) {
                 <CardDescription>{skill.description}</CardDescription>
               </CardHeader>
               <CardContent>
-                <p>Date:{skill.date_created}</p>
+                <p className="text-gray-500 text-md">
+                  Date:{skill.date_created}
+                </p>
               </CardContent>
             </Card>
           ))}
