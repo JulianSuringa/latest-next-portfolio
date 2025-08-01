@@ -1,6 +1,6 @@
-'use client'
-import { BannerData } from '@/types'
-import Link from 'next/link'
+"use client";
+import { BannerData } from "@/types";
+import Image from "next/image";
 
 export default function HeroBanner(data: BannerData) {
   return (
@@ -12,7 +12,10 @@ export default function HeroBanner(data: BannerData) {
             {data.hero.title}
           </h1>
           {data.hero.desc.map((text, index) => (
-            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6" key={index}>
+            <p
+              className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6"
+              key={index}
+            >
               {text}
             </p>
           ))}
@@ -28,7 +31,9 @@ export default function HeroBanner(data: BannerData) {
 
         {/* Profile Image */}
         <div className="flex-1 flex justify-center">
-          <img
+          <Image
+            width={300}
+            height={300}
             src="/images/id.png"
             alt="Profile"
             className="rounded-full shadow-lg w-full max-w-xs object-cover"
@@ -36,5 +41,5 @@ export default function HeroBanner(data: BannerData) {
         </div>
       </div>
     </div>
-  )
+  );
 }

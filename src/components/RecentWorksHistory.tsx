@@ -1,5 +1,6 @@
-import { WorksData } from '@/types/works'
-import Link from 'next/link'
+import { WorksData } from "@/types/works";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function RecentWorksHistory({ header, works }: WorksData) {
   return (
@@ -18,7 +19,9 @@ export default function RecentWorksHistory({ header, works }: WorksData) {
               <div className="flex flex-col bg-white dark:bg-gray-800 md:flex-row text-black/90 rounded-md my-2 md:my-0 md:p-8  w-full">
                 <div className="w-full max-w-3xs p-8  flex justify-center items-center mx-auto md:mx-0">
                   <Link href={work.companyLink}>
-                    <img
+                    <Image
+                      width={150}
+                      height={150}
                       src={work.imageUrl}
                       alt={work.imageAlt}
                       className="max-w-full h-auto object-contain"
@@ -31,9 +34,12 @@ export default function RecentWorksHistory({ header, works }: WorksData) {
 
                   <div className="text-[1.125rem] text-black/40 py-4">
                     <span>
-                      <Link href={work.companyLink} className="underline hover:text-blue-600">
+                      <Link
+                        href={work.companyLink}
+                        className="underline hover:text-blue-600"
+                      >
                         {work.companyName}
-                      </Link>{' '}
+                      </Link>{" "}
                       | {work.dateStarted} - {work.dateEnd}
                     </span>
                   </div>
@@ -50,5 +56,5 @@ export default function RecentWorksHistory({ header, works }: WorksData) {
         </div>
       </div>
     </div>
-  )
+  );
 }

@@ -1,6 +1,12 @@
-import { SkillsData } from '@/types/skills'
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from './ui/cards'
-import Link from 'next/link'
+import { SkillsData } from "@/types/skills";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from "./ui/cards";
+import Link from "next/link";
 
 export default function RecentSkills({ header, skills }: SkillsData) {
   return (
@@ -21,12 +27,12 @@ export default function RecentSkills({ header, skills }: SkillsData) {
                 <CardDescription>{skill.description}</CardDescription>
               </CardHeader>
               <CardContent>
-                <p>Date Created: {new Date(skill.date_created).toLocaleDateString()}</p>
+                <p>Date:{skill.date_created}</p>
               </CardContent>
             </Card>
           ))}
         </div>
       </div>
     </div>
-  )
+  );
 }
