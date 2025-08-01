@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   output: "export",
   basePath: "/latest-next-portfolio", // if not deploying to root
-  assetPrefix: "/latest-next-portfolio",
+  assetPrefix: "/latest-next-portfolio/",
   images: { unoptimized: true },
 };
 
