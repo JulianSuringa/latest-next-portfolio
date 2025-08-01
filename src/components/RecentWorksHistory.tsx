@@ -1,6 +1,7 @@
 import { WorksData } from "@/types/works";
 import Link from "next/link";
 import Image from "next/image";
+import { prefix } from "@/utils/prefix";
 
 export default function RecentWorksHistory({ header, works }: WorksData) {
   return (
@@ -22,8 +23,8 @@ export default function RecentWorksHistory({ header, works }: WorksData) {
                     <Image
                       width={150}
                       height={150}
-                      src={work.imageUrl}
-                      alt={work.imageAlt}
+                      src={prefix + work.imageUrl}
+                      alt={prefix + work.imageAlt}
                       className="max-w-full h-auto object-contain"
                     />
                   </Link>

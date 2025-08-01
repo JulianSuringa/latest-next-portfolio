@@ -6,6 +6,7 @@ import Head from "next/head";
 import { WorkItem, WorksData } from "@/types";
 import Link from "next/link";
 import Image from "next/image";
+import { prefix } from "@/utils/prefix";
 
 export default function WorksPage({
   worksData,
@@ -42,8 +43,8 @@ export default function WorksPage({
                     <Image
                       width={150}
                       height={150}
-                      src={work.imageUrl}
-                      alt={work.imageAlt}
+                      src={prefix + work.imageUrl}
+                      alt={prefix + work.imageAlt}
                       className="max-w-full h-auto object-contain"
                     />
                   </Link>

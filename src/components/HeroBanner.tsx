@@ -1,5 +1,6 @@
 "use client";
 import { BannerData } from "@/types";
+import { prefix } from "@/utils/prefix";
 import Image from "next/image";
 
 export default function HeroBanner(data: BannerData) {
@@ -34,7 +35,7 @@ export default function HeroBanner(data: BannerData) {
           <Image
             width={300}
             height={300}
-            src="/images/id.png"
+            src={`${prefix}/images/id.png`}
             alt="Profile"
             className="rounded-full shadow-lg w-full max-w-xs object-cover"
           />
