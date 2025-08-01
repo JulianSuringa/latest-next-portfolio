@@ -19,7 +19,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22.14'
+          node-version: "22.14"
 
       - name: Install dependencies
         run: npm ci
@@ -30,7 +30,6 @@ jobs:
       - name: Build and Export
         run: |
           npm run build
-          npm run export
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
