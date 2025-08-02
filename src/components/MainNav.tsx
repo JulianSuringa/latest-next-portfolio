@@ -9,6 +9,7 @@ import {
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { cn } from "@/lib/utils"; // helper from shadcn for conditional classes
+import { prefix } from "@/utils/prefix";
 
 const navLinks = [
   { href: "/skills", label: "Skills", exact: false },
@@ -33,7 +34,7 @@ export function MainNav() {
               className={cn(isActive && "bg-accent rounded-md")}
             >
               <NavigationMenuLink
-                href={href}
+                href={prefix + href}
                 className={cn(
                   "px-4 py-2 transition-colors hover:text-orange-500",
                   isActive && "text-orange-600 font-semibold"
