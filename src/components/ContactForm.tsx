@@ -43,6 +43,8 @@ export default function ContactForm() {
         console.error("Error response:", errorData);
       }
     } catch (err) {
+      console.error("Error sending message:", err);
+      // Show error toast
       toast.error("Something went wrong.", {
         duration: 5000,
         position: "bottom-center",
