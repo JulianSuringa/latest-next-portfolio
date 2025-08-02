@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      NEXT_PUBLIC_BASE_PATH: /latest-next-portfolio
+      NEXT_PUBLIC_BASE_PATH: latest-next-portfolio
       API_URL: next-portfolio-juliansuringas-projects.vercel.app
       NODE_ENV: production
 
