@@ -19,9 +19,11 @@ export default function ContactForm() {
   } = useForm<ContactFormInputs>();
 
   const onSubmit = async (data: ContactFormInputs) => {
-    console.log("Form data:", data);
     try {
-      const url = prefix ? `${apiUrl}/api/contact` : "/api/contact";
+      console.log(prefix);
+      console.log(apiUrl);
+      const url = !!prefix ? `${apiUrl}/api/contact` : "/api/contact";
+      console.log("Sending data to:", url);
       const res = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
