@@ -52,6 +52,20 @@ type Data = {
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default async (req: NextApiRequest, res: NextApiResponse<Data>) => {
+  const allowedOrigins = [
+    "http://localhost:3000",
+    "https://juliansuringa.github.io",
+    "https://next-portfolio-juliansuringas-projects.vercel.app",
+  ];
+  const origin = req.headers.origin;
+
+  if (origin && allowedOrigins.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+  }
+
+  res.setHeader("Access-Control-Allow-Methods", "GET,POST,OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
   if (req.method === "POST") {
     try {
       await sendEmail({
