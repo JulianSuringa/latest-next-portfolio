@@ -1,4 +1,6 @@
 "use client"; // if using App Router
+import { apiUrl } from "@/utils/api-url";
+import { prefix } from "@/utils/prefix";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
@@ -19,7 +21,8 @@ export default function ContactForm() {
   const onSubmit = async (data: ContactFormInputs) => {
     console.log("Form data:", data);
     try {
-      const res = await fetch("/api/contact", {
+      const url = prefix ? `${apiUrl}/api/contact` : "/api/contact";
+      const res = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
