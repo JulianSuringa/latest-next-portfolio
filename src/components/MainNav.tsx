@@ -1,46 +1,50 @@
-'use client'
+"use client";
 
 import {
   NavigationMenu,
   NavigationMenuList,
   NavigationMenuItem,
   NavigationMenuLink,
-} from '@/components/ui/navigation-menu'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { cn } from '@/lib/utils' // helper from shadcn for conditional classes
+} from "@/components/ui/navigation-menu";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { cn } from "@/lib/utils"; // helper from shadcn for conditional classes
 
 const navLinks = [
-  { href: '/skills', label: 'Skills', exact: false },
-  { href: '/works', label: 'Works' },
-  { href: '/contact', label: 'Contact' },
-]
+  { href: "/skills", label: "Skills", exact: false },
+  { href: "/works", label: "Works" },
+  { href: "/contact", label: "Contact" },
+];
 
 export function MainNav() {
-  const router = useRouter()
+  const router = useRouter();
 
   return (
     <NavigationMenu>
       <NavigationMenuList>
         {navLinks.map(({ href, label, exact }) => {
-          const isActive = exact ? router.pathname === href : router.pathname.startsWith(href)
+          const isActive = exact
+            ? router.pathname === href
+            : router.pathname.startsWith(href);
 
           return (
-            <NavigationMenuItem key={href} className={cn(isActive && 'bg-accent rounded-md')}>
-              <Link href={href} passHref>
-                <NavigationMenuLink
-                  className={cn(
-                    'px-4 py-2 transition-colors hover:text-blue-500',
-                    isActive && 'text-blue-600 font-semibold'
-                  )}
-                >
-                  {label}
-                </NavigationMenuLink>
-              </Link>
+            <NavigationMenuItem
+              key={href}
+              className={cn(isActive && "bg-accent rounded-md")}
+            >
+              <NavigationMenuLink
+                href={href}
+                className={cn(
+                  "px-4 py-2 transition-colors hover:text-orange-500",
+                  isActive && "text-orange-600 font-semibold"
+                )}
+              >
+                {label}
+              </NavigationMenuLink>
             </NavigationMenuItem>
-          )
+          );
         })}
       </NavigationMenuList>
     </NavigationMenu>
-  )
+  );
 }

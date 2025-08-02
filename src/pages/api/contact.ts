@@ -3,13 +3,19 @@
 
 import { NextApiRequest, NextApiResponse } from "next";
 import nodemailer from "nodemailer";
-import htmlTemplate from "@/template/contact-us";
+import htmlTemplate from "@/template/contact";
 import dotenv from "dotenv";
 import { google } from "googleapis";
 
 const result = dotenv.config();
 const env = process.env || result.parsed;
-
+console.log(
+  "ENV:",
+  env.SMTP_EMAIL,
+  env.CLIENT_ID,
+  env.CLIENT_SECRET,
+  env.REFRESH_TOKEN
+);
 const createTransporter = async () => {
   const { SMTP_EMAIL, CLIENT_ID, CLIENT_SECRET, REFRESH_TOKEN } = env;
   const REDIRECT_URI = "https://developers.google.com/oauthplayground";
@@ -20,7 +26,8 @@ const createTransporter = async () => {
   );
 
   oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
-  const { token } = await oAuth2Client.getAccessToken();
+  const accessTokenObject = await oAuth2Client.getAccessToken();
+  const accessToken = accessTokenObject?.token || "";
   return nodemailer.createTransport({
     service: "Gmail",
     auth: {
@@ -29,8 +36,7 @@ const createTransporter = async () => {
       clientId: CLIENT_ID,
       clientSecret: CLIENT_SECRET,
       refreshToken: REFRESH_TOKEN,
-      accessToken: token || "",
-      expires: 1484314697598,
+      accessToken: accessToken,
     },
   });
 };
@@ -53,12 +59,12 @@ type Data = {
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   if (req.method === "POST") {
-    const { firstName, lastName, email } = req.body;
+    console.log("Received contact form submission:", req.body);
     try {
       await sendEmail({
-        from: `${firstName} ${lastName} <${email}>`,
-        to: env.SMTP_EMAIL,
-        subject: "Inquiry from Contact Us",
+        from: `Portfolio Contact <${env.SMTP_EMAIL}> `,
+        to: env.EMAIL_RECEIVER,
+        subject: "Inquiry from Portfolio Contact Form",
         html: htmlTemplate(req.body),
       });
       res.status(200).json({
