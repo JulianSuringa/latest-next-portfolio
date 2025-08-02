@@ -9,13 +9,7 @@ import { google } from "googleapis";
 
 const result = dotenv.config();
 const env = process.env || result.parsed;
-console.log(
-  "ENV:",
-  env.SMTP_EMAIL,
-  env.CLIENT_ID,
-  env.CLIENT_SECRET,
-  env.REFRESH_TOKEN
-);
+
 const createTransporter = async () => {
   const { SMTP_EMAIL, CLIENT_ID, CLIENT_SECRET, REFRESH_TOKEN } = env;
   const REDIRECT_URI = "https://developers.google.com/oauthplayground";
@@ -59,7 +53,6 @@ type Data = {
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   if (req.method === "POST") {
-    console.log("Received contact form submission:", req.body);
     try {
       await sendEmail({
         from: `Portfolio Contact <${env.SMTP_EMAIL}> `,
