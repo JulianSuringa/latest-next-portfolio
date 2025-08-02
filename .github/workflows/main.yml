@@ -14,7 +14,7 @@ jobs:
 
     env:
       NEXT_PUBLIC_BASE_PATH: latest-next-portfolio
-      API_URL: https://next-portfolio-juliansuringas-projects.vercel.app
+      NEXT_PUBLIC_API_URL: https://next-portfolio-juliansuringas-projects.vercel.app
       NODE_ENV: production
 
     steps:
@@ -45,4 +45,4 @@ jobs:
         run: |
           echo "NEXT_PUBLIC_BASE_PATH: $NEXT_PUBLIC_BASE_PATH"
           echo "NODE_ENV: $NODE_ENV"
-          echo "API_URL: $API_URL"
+          echo "API_URL: $NEXT_PUBLIC_API_URL"
