@@ -14,7 +14,7 @@ jobs:
 
     env:
       NEXT_PUBLIC_BASE_PATH: /latest-next-portfolio
-      API_URL: https://next-portfolio-juliansuringas-projects.vercel.app
+      API_URL: next-portfolio-juliansuringas-projects.vercel.app
       NODE_ENV: production
 
     steps:
@@ -41,3 +41,8 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./out
+      - name: Print Environment Variables
+        run: |
+          echo "NEXT_PUBLIC_BASE_PATH: $NEXT_PUBLIC_BASE_PATH"
+          echo "NODE_ENV: $NODE_ENV"
+          echo "API_URL: $API_URL"
