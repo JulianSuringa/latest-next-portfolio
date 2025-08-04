@@ -14,7 +14,7 @@ export default function Header() {
           </div>
         </Link>
       </div>
-      <div className="flex items-center space-x-2">
+      <div className="flex items-center md:space-x-2">
         <MainNav />
         <ThemeToggleButton />
       </div>

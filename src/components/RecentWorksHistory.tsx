@@ -3,13 +3,16 @@ import Link from "next/link";
 import Image from "next/image";
 import { prefix } from "@/utils/prefix";
 
-export default function RecentWorksHistory({ header, works }: WorksData) {
+export default function RecentWorksHistory({ works }: WorksData) {
   return (
     <div className="flex w-full">
       <div className="flex flex-col w-full max-w-7xl mx-auto px-6 py-16 gap-6">
         <div className="flex flex-row justify-between items-center">
-          <h2 className="text-2xl font-bold">Recent {header}</h2>
-          <Link href="/works" className="text-blue-600 hover:underline">
+          <h2 className="text-xl sm:text-2xl font-bold">Recent works </h2>
+          <Link
+            href="/works"
+            className="text-blue-600 hover:underline text-nowrap"
+          >
             View All Works
           </Link>
         </div>
