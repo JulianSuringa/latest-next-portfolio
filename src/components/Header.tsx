@@ -1,6 +1,7 @@
-import Link from 'next/link'
-import { Logo } from '@/components/Logo'
-import { MainNav } from '@/components/MainNav'
+import Link from "next/link";
+import { Logo } from "@/components/Logo";
+import { MainNav } from "@/components/MainNav";
+import ThemeToggleButton from "@/components/ThemeToggleButton";
 
 export default function Header() {
   return (
@@ -13,7 +14,10 @@ export default function Header() {
           </div>
         </Link>
       </div>
-      <MainNav />
+      <div className="flex items-center space-x-2">
+        <MainNav />
+        <ThemeToggleButton />
+      </div>
     </header>
-  )
+  );
 }
