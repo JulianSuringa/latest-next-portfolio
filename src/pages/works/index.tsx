@@ -29,7 +29,7 @@ export default function WorksPage({
       <section className="flex flex-col items-center justify-center min-h-screen bg-background text-foreground p-4 md:p-10">
         <div className="flex flex-col justify-center w-full max-w-7xl">
           <h1 className="text-2xl font-bold mb-4 text-center">{header}</h1>
-          <p className="text-gray-600 mb-8 text-center">
+          <p className="text-gray-600 dark:text-gray-400 mb-8 text-center">
             Here are some of my works history. Feel free to explore and learn
             more about them.
           </p>
@@ -37,7 +37,7 @@ export default function WorksPage({
         <div className="flex flex-col justify-center items-center w-full max-w-screen-lg">
           {[...works].reverse().map((work: WorkItem) => (
             <div key={work.id} className="w-full flex flex-col items-center">
-              <div className="flex flex-col bg-background md:flex-row text-black/90 rounded-md my-2 md:my-0 p-8 w-full">
+              <div className="flex flex-col bg-background md:flex-row text-black/90 rounded-md my-2 md:my-0 md:p-8 w-full">
                 <div className="w-full max-w-3xs p-8  flex justify-center items-center mx-auto md:mx-0">
                   <Link href={work.companyLink}>
                     <Image
@@ -50,7 +50,7 @@ export default function WorksPage({
                   </Link>
                 </div>
 
-                <div className="pl-3 md:pl-4  flex flex-col justify-center md:justify-start md:text-left text-center">
+                <div className="md:pl-4  flex flex-col justify-center md:justify-start md:text-left text-center">
                   <div className="text-foreground text-xl font-bold">
                     {work.title}
                   </div>

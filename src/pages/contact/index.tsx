@@ -12,7 +12,7 @@ export default function ContactPage() {
         />
       </Head>
 
-      <section className="min-h-screen p-4 md:p-10 bg-background text-foreground">
+      <section className="md:min-h-screen p-4 md:p-10 bg-background text-foreground">
         <h1 className="text-2xl font-bold mb-4 text-center">Contact Me</h1>
 
         <ContactForm />

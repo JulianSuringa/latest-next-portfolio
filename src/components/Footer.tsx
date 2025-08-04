@@ -46,7 +46,7 @@ const socialLinks = socials.map(({ name, href }) => (
 export default function Footer() {
   return (
     <footer className="bg-transparent text-secondary-foreground">
-      <div className="flex flex-col items-center justify-center p-14 md:p-20 w-full mx-auto">
+      <div className="flex flex-col items-center justify-center p-10 md:p-20 w-full mx-auto">
         <div className="flex flex-col items-center"></div>
         <ul className="flex  flex-row item-center justify center space-x-4">
           {socialLinks}

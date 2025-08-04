@@ -36,8 +36,8 @@ export function MainNav() {
               <NavigationMenuLink
                 href={prefix + href}
                 className={cn(
-                  "px-4 py-2 transition-colors hover:text-orange-500",
-                  isActive && "text-orange-600 font-semibold"
+                  "px-4 py-2 transition-colors hover:text-orange-400",
+                  isActive && "text-orange-400 font-semibold"
                 )}
               >
                 {label}

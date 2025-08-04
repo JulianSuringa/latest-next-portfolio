@@ -33,26 +33,10 @@ export default function SkillPage({
       <section className="flex flex-col items-center justify-center min-h-screen bg-background text-foreground p-4 md:p-10">
         <div className="flex flex-col justify-center w-full max-w-7xl">
           <h1 className="text-2xl font-bold mb-4 text-center">{header}</h1>
-          <p className="text-gray-600 mb-8 text-center">
+          <p className="text-gray-600 dark:text-gray-400 mb-8 text-center">
             Here are some of my skills that I have acquired over the years. Feel
             free to explore and learn more about them.
           </p>
-          {/*  <ul className="flex flex-col divide-y divide-gray-200 px-2 md:px-4 py-2 space-y-2.5">
-            {skills.map((skill: SkillItem, index: number) => (
-              <li
-                key={index}
-                className="bg-white px-4 py-4 hover:bg-gray-50 transition rounded-md"
-              >
-                <h2 className="text-xl tracking-wide font-semibold text-gray-800">
-                  {skill.title}
-                </h2>
-                <p className="text-md text-gray-400 mb-1 py-2">
-                  <span className="text-gray-500">{skill.date_created}</span>
-                </p>
-                <p className="text-gray-700 text-base">{skill.description}</p>
-              </li>
-            ))}
-          </ul> */}
           <Accordion
             type="single"
             collapsible
