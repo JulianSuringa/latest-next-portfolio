@@ -12,7 +12,7 @@ export default function ContactPage() {
         />
       </Head>
 
-      <section className="min-h-screen py-10 bg-gray-50">
+      <section className="min-h-screen py-10 bg-background text-foreground">
         <h1 className="text-2xl font-bold text-center mb-6">Contact Me</h1>
 
         <ContactForm />

@@ -1,24 +1,22 @@
-'use client'
+"use client";
 
-import { GetStaticProps, InferGetStaticPropsType } from 'next'
-import path from 'path'
-import fs from 'fs/promises'
-import HeroBanner from '@/components/HeroBanner'
-import Head from 'next/head'
+import { GetStaticProps, InferGetStaticPropsType } from "next";
+import path from "path";
+import fs from "fs/promises";
+import HeroBanner from "@/components/HeroBanner";
+import Head from "next/head";
 
-import { BannerData } from '@/types/banner'
-import { SkillsData } from '@/types/skills'
-import { WorksData } from '@/types/works'
-import RecentSkills from '@/components/RecentSkills'
-import RecentWorksHistory from '@/components/RecentWorksHistory'
+import { BannerData } from "@/types/banner";
+import { SkillsData } from "@/types/skills";
+import { WorksData } from "@/types/works";
+import RecentSkills from "@/components/RecentSkills";
+import RecentWorksHistory from "@/components/RecentWorksHistory";
 
 export default function Home({
   banner,
   recentSkills,
   recentWorks,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  console.log('Recent Skills:', recentSkills)
-  console.log('Recent Works:', recentWorks)
   return (
     <>
       <Head>
@@ -30,32 +28,50 @@ export default function Home({
         <RecentWorksHistory {...recentWorks} />
       </section>
     </>
-  )
+  );
 }
 
 export const getStaticProps: GetStaticProps<{
-  banner: BannerData
-  recentSkills: SkillsData
-  recentWorks: WorksData
+  banner: BannerData;
+  recentSkills: SkillsData;
+  recentWorks: WorksData;
 }> = async () => {
-  const filePath = path.join(process.cwd(), 'src', 'data', 'pages', 'home.json')
-  const jsonData = await fs.readFile(filePath, 'utf-8')
-  const data = JSON.parse(jsonData)
+  const filePath = path.join(
+    process.cwd(),
+    "src",
+    "data",
+    "pages",
+    "home.json"
+  );
+  const jsonData = await fs.readFile(filePath, "utf-8");
+  const data = JSON.parse(jsonData);
 
-  const filePathWorks = path.join(process.cwd(), 'src', 'data', 'pages', 'works.json')
-  const jsonDataWorks = await fs.readFile(filePathWorks, 'utf-8')
-  let recentWorks = JSON.parse(jsonDataWorks)
+  const filePathWorks = path.join(
+    process.cwd(),
+    "src",
+    "data",
+    "pages",
+    "works.json"
+  );
+  const jsonDataWorks = await fs.readFile(filePathWorks, "utf-8");
+  let recentWorks = JSON.parse(jsonDataWorks);
 
   if (recentWorks.works.length > 1) {
-    const lastIndex = recentWorks.works.length - 1
-    const worksList = recentWorks.works.slice(lastIndex - 1)
-    recentWorks = { ...recentWorks, works: worksList }
+    const lastIndex = recentWorks.works.length - 1;
+    const worksList = recentWorks.works.slice(lastIndex - 1);
+    recentWorks = { ...recentWorks, works: worksList };
   }
 
-  const filePathSkills = path.join(process.cwd(), 'src', 'data', 'pages', 'skills.json')
-  const jsonDataSkills = await fs.readFile(filePathSkills, 'utf-8')
-  const skillsData = JSON.parse(jsonDataSkills)
-  const recentSkills = skillsData.skills.reverse().splice(0, 3)
+  const filePathSkills = path.join(
+    process.cwd(),
+    "src",
+    "data",
+    "pages",
+    "skills.json"
+  );
+  const jsonDataSkills = await fs.readFile(filePathSkills, "utf-8");
+  const skillsData = JSON.parse(jsonDataSkills);
+  const recentSkills = skillsData.skills.reverse().splice(0, 3);
 
   return {
     props: {
@@ -63,5 +79,5 @@ export const getStaticProps: GetStaticProps<{
       recentWorks,
       recentSkills: { header: skillsData.header, skills: recentSkills },
     },
-  }
-}
+  };
+};

@@ -20,10 +20,7 @@ export default function ContactForm() {
 
   const onSubmit = async (data: ContactFormInputs) => {
     try {
-      console.log("API value:", api);
-      console.log("is API have value", !!api);
       const url = !!api ? `${api}/api/contact` : "/api/contact";
-      console.log("Sending data to:", url);
       const res = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -103,13 +100,15 @@ export default function ContactForm() {
         )}
       </div>
 
-      <button
-        type="submit"
-        disabled={isSubmitting}
-        className="bg-orange-600 text-white px-4 py-2 rounded hover:bg-orange-700"
-      >
-        {isSubmitting ? "Sending..." : "Send Message"}
-      </button>
+      <div className="flex justify-center md:justify-start">
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className="bg-orange-600 text-white px-4 py-2 rounded hover:bg-orange-700"
+        >
+          {isSubmitting ? "Sending..." : "Send Message"}
+        </button>
+      </div>
     </form>
   );
 }

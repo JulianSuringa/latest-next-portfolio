@@ -26,7 +26,7 @@ export default function WorksPage({
       <Head>
         <title>Works history| JS</title>
       </Head>
-      <section className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-4 md:p-10">
+      <section className="flex flex-col items-center justify-center min-h-screen bg-background text-foreground p-4 md:p-10">
         <div className="flex flex-col justify-center w-full max-w-7xl">
           <h1 className="text-2xl font-bold mb-4 text-center">{header}</h1>
           <p className="text-gray-600 mb-8 text-center">
@@ -37,7 +37,7 @@ export default function WorksPage({
         <div className="flex flex-col justify-center items-center w-full max-w-screen-lg">
           {[...works].reverse().map((work: WorkItem) => (
             <div key={work.id} className="w-full flex flex-col items-center">
-              <div className="flex flex-col bg-white dark:bg-gray-800 md:flex-row text-black/90 rounded-md my-2 md:my-0 p-8 w-full">
+              <div className="flex flex-col bg-background md:flex-row text-black/90 rounded-md my-2 md:my-0 p-8 w-full">
                 <div className="w-full max-w-3xs p-8  flex justify-center items-center mx-auto md:mx-0">
                   <Link href={work.companyLink}>
                     <Image
@@ -51,9 +51,11 @@ export default function WorksPage({
                 </div>
 
                 <div className="pl-3 md:pl-4  flex flex-col justify-center md:justify-start md:text-left text-center">
-                  <div className="text-xl font-bold">{work.title}</div>
+                  <div className="text-foreground text-xl font-bold">
+                    {work.title}
+                  </div>
 
-                  <div className="text-[1.125rem] text-black/40 py-4">
+                  <div className="text-[1.125rem] text-gray-400  py-4">
                     <span>
                       <Link
                         href={work.companyLink}
@@ -65,13 +67,13 @@ export default function WorksPage({
                     </span>
                   </div>
 
-                  <div className="text-md  text-center md:text-left text-black/70">
+                  <div className="text-md  text-center md:text-left text-foreground">
                     {work.description}
                   </div>
                 </div>
               </div>
 
-              <hr className="w-full max-w-screen-lg border-t border-black/20" />
+              <hr className="w-full max-w-screen-lg border-t border-black/20 dark:border-white/20" />
             </div>
           ))}
         </div>

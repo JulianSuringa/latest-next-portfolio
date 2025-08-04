@@ -6,7 +6,7 @@ import Image from "next/image";
 export default function HeroBanner(data: BannerData) {
   return (
     <div className="w-full bg-white dark:bg-gray-900 py-16 px-4 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
+      <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center gap-12">
         {/* Text Content */}
         <div className="flex-1 justify-center text-center md:text-left items-center md:items-start">
           <h1 className="text-3xl md:text-[3.5rem] font-bold text-gray-900 dark:text-white mb-4">

@@ -30,10 +30,12 @@ export default function RecentWorksHistory({ header, works }: WorksData) {
                   </Link>
                 </div>
 
-                <div className="pl-3 md:pl-4  flex flex-col justify-center md:justify-start md:text-left text-center">
-                  <div className="text-xl font-bold">{work.title}</div>
+                <div className="p-3 md:pl-4  flex flex-col justify-center md:justify-start md:text-left text-center">
+                  <div className=" text-foreground text-xl font-bold">
+                    {work.title}
+                  </div>
 
-                  <div className="text-[1.125rem] text-black/40 py-4">
+                  <div className="text-[1.125rem] text-black/40 dark:text-gray-500 py-4">
                     <span>
                       <Link
                         href={work.companyLink}
@@ -45,7 +47,7 @@ export default function RecentWorksHistory({ header, works }: WorksData) {
                     </span>
                   </div>
 
-                  <div className="text-md  text-center md:text-left text-black/70">
+                  <div className=" text-foreground text-md  text-center md:text-left ">
                     {work.description}
                   </div>
                 </div>

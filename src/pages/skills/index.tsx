@@ -24,7 +24,7 @@ export default function SkillPage({
       <Head>
         <title>Skills | JS</title>
       </Head>
-      <section className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-4 md:p-10">
+      <section className="flex flex-col items-center justify-center min-h-screen bg-background text-foreground p-4 md:p-10">
         <div className="flex flex-col justify-center w-full max-w-7xl">
           <h1 className="text-2xl font-bold mb-4 text-center">{header}</h1>
           <p className="text-gray-600 mb-8 text-center">
@@ -48,11 +48,11 @@ export default function SkillPage({
             ))}
           </ul>
           <div className="max-w-2xl mx-auto text-center mt-12 px-4">
-            <p className="text-md text-gray-800 font-medium mb-4">
+            <p className="text-md text-gray-800 dark:text-gray-400 font-medium mb-4">
               If you want to know more about my skills, feel free to contact me!
             </p>
 
-            <p className="text-md text-gray-800 font-medium mb-4">
+            <p className="text-md text-gray-800 dark:text-gray-400 font-medium mb-4">
               You can also check out my{" "}
               <Link
                 href="/works"
@@ -63,7 +63,7 @@ export default function SkillPage({
               to see how I apply these skills.
             </p>
 
-            <p className="text-md text-gray-800 font-medium mb-4">
+            <p className="text-md text-gray-800 dark:text-gray-400 font-medium mb-4">
               If you have any questions or want to discuss potential
               collaborations, please{" "}
               <Link
@@ -75,7 +75,7 @@ export default function SkillPage({
               .
             </p>
 
-            <p className="text-md font-semibold text-black dark:white mb-4">
+            <p className="text-md font-semibold text-black dark:text-gray-400 dark:white mb-4">
               Thank you for visiting my skills page!
             </p>
           </div>

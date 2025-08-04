@@ -9,7 +9,7 @@ export default function Layout({ children }: { children: ReactNode }) {
     <>
       <Header />
       <main>{children}</main>
-      <Toaster containerStyle={{ bottom: "4rem", position: "fixed" }} />
+      <Toaster containerStyle={{ bottom: "20rem", position: "fixed" }} />
       <Footer />
     </>
   );
