@@ -12,8 +12,8 @@ export default function ContactPage() {
         />
       </Head>
 
-      <section className="min-h-screen py-10 bg-background text-foreground">
-        <h1 className="text-2xl font-bold text-center mb-6">Contact Me</h1>
+      <section className="min-h-screen p-4 md:p-10 bg-background text-foreground">
+        <h1 className="text-2xl font-bold mb-4 text-center">Contact Me</h1>
 
         <ContactForm />
         <div className="flex mx-auto max-w-md mt-6 md:mt-8 border-t border-gray-200 p-2 pt-6  md:pt-8">

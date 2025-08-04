@@ -5,7 +5,13 @@ import fs from "fs/promises";
 import Head from "next/head";
 import { SkillItem } from "@/types/skills";
 import Link from "next/link";
-
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/accordion";
+import { cn } from "@/lib/utils";
 export default function SkillPage({
   data,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
@@ -31,7 +37,7 @@ export default function SkillPage({
             Here are some of my skills that I have acquired over the years. Feel
             free to explore and learn more about them.
           </p>
-          <ul className="flex flex-col divide-y divide-gray-200 px-2 md:px-4 py-2 space-y-2.5">
+          {/*  <ul className="flex flex-col divide-y divide-gray-200 px-2 md:px-4 py-2 space-y-2.5">
             {skills.map((skill: SkillItem, index: number) => (
               <li
                 key={index}
@@ -46,7 +52,33 @@ export default function SkillPage({
                 <p className="text-gray-700 text-base">{skill.description}</p>
               </li>
             ))}
-          </ul>
+          </ul> */}
+          <Accordion
+            type="single"
+            collapsible
+            className="flex flex-col max-w-7xl"
+            defaultValue="item-1"
+          >
+            {skills.map((skill: SkillItem, index: number) => (
+              <AccordionItem
+                value={`item-${index}`}
+                key={index + new Date().getTime()}
+              >
+                <AccordionTrigger className={cn("font-semibold text-xl")}>
+                  <h2>{skill.title}</h2>
+                </AccordionTrigger>
+                <AccordionContent className="flex flex-col gap-4 text-balance">
+                  <p className="text-md text-gray-400  py-2">
+                    <span className="text-gray-500">{skill.date_created}</span>
+                  </p>
+                  <p className="text-foreground text-base">
+                    {skill.description}
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+
           <div className="max-w-2xl mx-auto text-center mt-12 px-4">
             <p className="text-md text-gray-800 dark:text-gray-400 font-medium mb-4">
               If you want to know more about my skills, feel free to contact me!
