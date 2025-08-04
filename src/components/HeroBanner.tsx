@@ -23,7 +23,7 @@ export default function HeroBanner(data: BannerData) {
 
           <a
             className="inline-block bg-orange-600 hover:bg-orange-700 text-white font-semibold px-6 py-3 rounded-md transition"
-            href="/files/Julian%20Suringa%20CV.pdf"
+            href={`${prefix}/files/Julian%20Suringa%20CV.pdf`}
             target="_blank"
           >
             Download Resume
