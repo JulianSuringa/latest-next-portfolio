@@ -28,6 +28,7 @@ const config: Config = {
 
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts", "@testing-library/jest-dom"],
   testMatch: [
+    "**/__tests__/**/*.(test|spec).(ts|tsx)",
     "<rootDir>/__tests__/**/*.(spec|test).[jt]s?(x)",
     "<rootDir>/src/**/*.(spec|test).[jt]s?(x)",
   ],
