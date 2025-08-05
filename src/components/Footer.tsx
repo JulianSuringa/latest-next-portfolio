@@ -2,9 +2,9 @@ import Link from "next/link";
 import socials from "@/data/socials.json";
 import Facebook from "@/components/icons/facebook";
 import { useTheme } from "next-themes";
-import Instagram from "./icons/instagram";
-import Twitter from "./icons/twitter";
-import Linkedin from "./icons/linkedin";
+import Instagram from "@/components/icons/instagram";
+import Twitter from "@/components/icons/twitter";
+import Linkedin from "@/components/icons/linkedin";
 
 export default function Footer() {
   const { theme, resolvedTheme } = useTheme();

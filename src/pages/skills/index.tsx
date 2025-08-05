@@ -45,7 +45,7 @@ export default function SkillPage({
           >
             {skills.map((skill: SkillItem, index: number) => (
               <AccordionItem
-                value={`item-${index}`}
+                value={`item-${index + 1}`}
                 key={index + new Date().getTime()}
               >
                 <AccordionTrigger className={cn("font-semibold text-xl")}>

@@ -9,7 +9,24 @@ permissions:
   contents: write
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      NEXT_PUBLIC_BASE_PATH: latest-next-portfolio
+      NEXT_PUBLIC_API_URL: https://next-portfolio-juliansuringas-projects.vercel.app
+      NODE_ENV: production
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22.14"
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run test
+
   build-and-deploy:
+    needs: test
     runs-on: ubuntu-latest
 
     env:

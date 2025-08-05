@@ -6,7 +6,6 @@ import {
   NavigationMenuItem,
   NavigationMenuLink,
 } from "@/components/ui/navigation-menu";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { cn } from "@/lib/utils"; // helper from shadcn for conditional classes
 import { prefix } from "@/utils/prefix";
