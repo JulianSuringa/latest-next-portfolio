@@ -10,13 +10,17 @@ import {
   Sheet,
   SheetClose,
   SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { useRouter } from "next/router";
 import { cn } from "@/lib/utils"; // helper from shadcn for conditional classes
-import { prefix } from "@/utils/prefix";
 import { Menu } from "lucide-react";
 import Link from "next/link";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+import { prefix } from "@/utils/prefix";
 
 const navLinks = [
   { href: "/skills", label: "Skills", exact: false },
@@ -44,7 +48,7 @@ export default function MainNav() {
                   className={cn(isActive && "bg-accent rounded-md")}
                 >
                   <NavigationMenuLink
-                    href={`/${prefix + href}`}
+                    href={!!prefix ? `/${prefix + href}` : href}
                     className={cn(
                       "md:px-4 py-2 transition-colors hover:text-orange-400",
                       isActive && "text-orange-400 font-semibold"
@@ -67,6 +71,14 @@ export default function MainNav() {
             </button>
           </SheetTrigger>
           <SheetContent side="right" className="w-64">
+            <SheetHeader className="hidden">
+              <SheetTitle>
+                <VisuallyHidden>Menu</VisuallyHidden>
+              </SheetTitle>
+              <SheetDescription>
+                <VisuallyHidden>Navigate through the site </VisuallyHidden>
+              </SheetDescription>
+            </SheetHeader>
             <nav className="flex flex-col gap-4 mt-8 p-4">
               {navLinks.map((item) => {
                 const isActive = router.pathname === item.href;

@@ -43,8 +43,17 @@ export default function WorksPage({
                     <Image
                       width={150}
                       height={150}
-                      src={prefix + work.imageUrl}
-                      alt={prefix + work.imageAlt}
+                      src={
+                        !!prefix
+                          ? `/${prefix + work.imageUrl}`
+                          : `${work.imageUrl}`
+                      }
+                      alt={
+                        !!prefix
+                          ? `/${prefix + work.imageAlt}`
+                          : `${work.imageAlt}`
+                      }
+                      loading="lazy"
                       className="max-w-full h-auto object-contain"
                     />
                   </Link>
