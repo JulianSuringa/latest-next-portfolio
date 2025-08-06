@@ -7,6 +7,7 @@ import {
   CardContent,
 } from "./ui/cards";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 export default function RecentSkills({ header, skills }: SkillsData) {
   return (
@@ -14,8 +15,10 @@ export default function RecentSkills({ header, skills }: SkillsData) {
       <div className="flex flex-col w-full max-w-7xl mx-auto px-6 py-16 gap-6">
         <div className="flex flex-row justify-between items-center">
           <h2 className="text-xl sm:text-2xl font-bold">Recent {header}</h2>
-          <Link href="/skills" className="text-blue-600 hover:underline">
-            View All Skills
+          <Link href="/skills" className="text-blue-600 hover:text-orange-400">
+            <span className="inline-flex items-center gap-1">
+              View All <ArrowRight size={20} />
+            </span>
           </Link>
         </div>
 

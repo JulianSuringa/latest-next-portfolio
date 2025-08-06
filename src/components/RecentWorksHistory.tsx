@@ -2,6 +2,7 @@ import { WorksData } from "@/types/works";
 import Link from "next/link";
 import Image from "next/image";
 import { prefix } from "@/utils/prefix";
+import { ArrowRight } from "lucide-react";
 
 export default function RecentWorksHistory({ works }: WorksData) {
   return (
@@ -9,11 +10,10 @@ export default function RecentWorksHistory({ works }: WorksData) {
       <div className="flex flex-col w-full max-w-7xl mx-auto px-6 py-16 gap-6">
         <div className="flex flex-row justify-between items-center">
           <h2 className="text-xl sm:text-2xl font-bold">Recent works </h2>
-          <Link
-            href="/works"
-            className="text-blue-600 hover:underline text-nowrap"
-          >
-            View All Works
+          <Link href="/works" className="text-blue-600 hover:text-orange-400">
+            <span className="inline-flex items-center gap-1">
+              View All <ArrowRight size={20} />
+            </span>
           </Link>
         </div>
 
