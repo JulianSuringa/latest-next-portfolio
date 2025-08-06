@@ -16,7 +16,8 @@ jest.mock("@/components/Logo", () => ({
 
 // ✅ MOCK 3: MainNav is a DEFAULT export
 jest.mock("@/components/MainNav", () => ({
-  MainNav: () => <nav data-testid="mock-main-nav" />,
+  __esModule: true,
+  default: () => <nav data-testid="mock-main-nav" />,
 }));
 
 // ✅ MOCK 4: ThemeToggleButton is a DEFAULT export

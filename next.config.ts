@@ -5,14 +5,13 @@ const isProd = process.env.NODE_ENV === "production";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  output: isProd ? "export" : undefined,
-  basePath: isProd ? `/${repoName}` : "",
-  assetPrefix: isProd ? `/${repoName}/` : "",
+  ...(isProd && {
+    output: "export",
+    basePath: `/${repoName}`,
+    assetPrefix: `/${repoName}/`,
+  }),
   images: {
     unoptimized: true,
-  },
-  env: {
-    NEXT_PUBLIC_BASE_PATH: isProd ? `/${repoName}` : "",
   },
 };
 

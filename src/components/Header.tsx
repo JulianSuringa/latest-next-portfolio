@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
-import { MainNav } from "@/components/MainNav";
+import MainNav from "@/components/MainNav";
 import ThemeToggleButton from "@/components/ThemeToggleButton";
 
 export default function Header() {
