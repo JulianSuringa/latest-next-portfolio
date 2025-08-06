@@ -44,7 +44,7 @@ export default function MainNav() {
                   className={cn(isActive && "bg-accent rounded-md")}
                 >
                   <NavigationMenuLink
-                    href={prefix + href}
+                    href={`/${prefix + href}`}
                     className={cn(
                       "md:px-4 py-2 transition-colors hover:text-orange-400",
                       isActive && "text-orange-400 font-semibold"
