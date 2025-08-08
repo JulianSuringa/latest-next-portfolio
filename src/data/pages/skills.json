@@ -104,12 +104,12 @@
     {
       "title": "React native",
       "date_created": "June 2025",
-      "description": "Take a course training in udemy."
+      "description": "Take a course training in udemy. Learn the basics of react native and create a simple application using react native and expo."
     },
     {
-      "title": "Shacdn UI",
+      "title": "Shadcn UI",
       "date_created": "July 2025",
-      "description": "Implement and integrate shadcn in next js framework to my portfolio"
+      "description": "Implement and integrate shadcn ui in next js framework to my portfolio"
     }
   ]
 }
