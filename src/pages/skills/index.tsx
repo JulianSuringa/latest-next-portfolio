@@ -43,7 +43,7 @@ export default function SkillPage({
             className="flex flex-col max-w-7xl"
             defaultValue="item-1"
           >
-            {skills.map((skill: SkillItem, index: number) => (
+            {[...skills].reverse().map((skill: SkillItem, index: number) => (
               <AccordionItem
                 value={`item-${index + 1}`}
                 key={index + new Date().getTime()}
