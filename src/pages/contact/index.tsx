@@ -1,7 +1,9 @@
 import ContactForm from "@/components/ContactForm";
 import Head from "next/head";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 export default function ContactPage() {
+  const { executeRecaptcha } = useGoogleReCaptcha();
   return (
     <>
       <Head>
@@ -15,7 +17,7 @@ export default function ContactPage() {
       <section className="p-4 md:p-10 bg-background text-foreground">
         <h1 className="text-2xl font-bold mb-4 text-center">Contact Me</h1>
 
-        <ContactForm />
+        <ContactForm executeRecaptcha={executeRecaptcha ?? (async () => "")} />
         <div className="flex mx-auto max-w-md mt-6 md:mt-8 border-t border-gray-200 p-2 pt-6  md:pt-8">
           <p className="text-center text-gray-600 mb-8">
             Feel free to reach out to me directly via email at{" "}

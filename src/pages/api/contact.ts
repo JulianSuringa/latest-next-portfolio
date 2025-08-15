@@ -68,6 +68,32 @@ export default async (req: NextApiRequest, res: NextApiResponse<Data>) => {
 
   if (req.method === "POST") {
     try {
+      // 1️⃣ Get the reCAPTCHA token from request body
+      const { token } = req.body;
+      console.log("Received reCAPTCHA token:", token);
+      if (!token) {
+        return res.status(400).json({ message: "Missing reCAPTCHA token" });
+      }
+
+      // 2️⃣ Verify token with Google
+      const recaptchaResponse = await fetch(
+        "https://www.google.com/recaptcha/api/siteverify",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: `secret=${env.RECAPTCHA_SECRET_KEY}&response=${token}`,
+        }
+      );
+      const recaptchaData = await recaptchaResponse.json();
+
+      console.log("reCAPTCHA verification result:", recaptchaData);
+
+      if (!recaptchaData.success || (recaptchaData.score ?? 0) < 0.5) {
+        return res
+          .status(400)
+          .json({ message: "Failed reCAPTCHA verification" });
+      }
+
       await sendEmail({
         from: `Portfolio Contact <${env.SMTP_EMAIL}> `,
         to: env.EMAIL_RECEIVER,

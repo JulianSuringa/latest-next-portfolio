@@ -10,7 +10,11 @@ type ContactFormInputs = {
   message: string;
 };
 
-export default function ContactForm() {
+export default function ContactForm({
+  executeRecaptcha,
+}: {
+  executeRecaptcha: (action: string) => Promise<string>;
+}) {
   const {
     register,
     handleSubmit,
@@ -19,12 +23,21 @@ export default function ContactForm() {
   } = useForm<ContactFormInputs>();
 
   const onSubmit = async (data: ContactFormInputs) => {
+    if (!executeRecaptcha) {
+      toast.error("Recaptcha not ready. Please try again later.", {
+        duration: 5000,
+        position: "bottom-center",
+      });
+      return;
+    }
     try {
+      const token = await executeRecaptcha("contact_form");
+
       const url = !!api ? `${api}/api/contact` : "/api/contact";
       const res = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, token }),
       });
 
       if (res.ok) {
