@@ -9,6 +9,9 @@ const nextConfig: NextConfig = {
     output: "export",
     basePath: `/${repoName}`,
     assetPrefix: `/${repoName}/`,
+    images: {
+      unoptimized: true, // Disable image optimization for static export
+    },
   }),
 };
 
