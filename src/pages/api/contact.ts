@@ -10,6 +10,14 @@ import { google } from "googleapis";
 const result = dotenv.config();
 const env = process.env || result.parsed;
 
+// Allowed origins for CORS
+// Adjust these based on your deployment
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://juliansuringa.github.io",
+  "https://next-portfolio-juliansuringas-projects.vercel.app",
+];
+
 const createTransporter = async () => {
   const { SMTP_EMAIL, CLIENT_ID, CLIENT_SECRET, REFRESH_TOKEN } = env;
   const REDIRECT_URI = "https://developers.google.com/oauthplayground";
@@ -52,11 +60,6 @@ type Data = {
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default async (req: NextApiRequest, res: NextApiResponse<Data>) => {
-  const allowedOrigins = [
-    "http://localhost:3000",
-    "https://juliansuringa.github.io",
-    "https://next-portfolio-juliansuringas-projects.vercel.app",
-  ];
   const origin = req.headers.origin;
 
   if (origin && allowedOrigins.includes(origin)) {
@@ -66,11 +69,16 @@ export default async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   res.setHeader("Access-Control-Allow-Methods", "GET,POST,OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
+  // Handle preflight
+  if (req.method === "OPTIONS") {
+    res.status(200).end();
+    return;
+  }
+
   if (req.method === "POST") {
     try {
       // 1️⃣ Get the reCAPTCHA token from request body
       const { token } = req.body;
-      console.log("Received reCAPTCHA token:", token);
       if (!token) {
         return res.status(400).json({ message: "Missing reCAPTCHA token" });
       }
@@ -85,8 +93,6 @@ export default async (req: NextApiRequest, res: NextApiResponse<Data>) => {
         }
       );
       const recaptchaData = await recaptchaResponse.json();
-
-      console.log("reCAPTCHA verification result:", recaptchaData);
 
       if (!recaptchaData.success || (recaptchaData.score ?? 0) < 0.5) {
         return res
