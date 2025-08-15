@@ -7,6 +7,10 @@ import Layout from "@/components/Layout";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 
 function MyApp({ Component, pageProps }: AppProps) {
+  console.log(
+    "NEXT_PUBLIC_RECAPTCHA_SITE_KEY",
+    process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY
+  );
   return (
     <GoogleReCaptchaProvider
       reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? ""}
