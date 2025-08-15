@@ -15,6 +15,7 @@ jobs:
     env:
       NEXT_PUBLIC_BASE_PATH: latest-next-portfolio
       NEXT_PUBLIC_API_URL: https://next-portfolio-juliansuringas-projects.vercel.app
+      NEXT_PUBLIC_RECAPTCHA_KEY: ${{ secrets.NEXT_PUBLIC_RECAPTCHA_KEY }}
       NODE_ENV: production
 
     steps:
@@ -55,3 +56,4 @@ jobs:
           echo "NEXT_PUBLIC_BASE_PATH: $NEXT_PUBLIC_BASE_PATH"
           echo "NODE_ENV: $NODE_ENV"
           echo "API_URL: $NEXT_PUBLIC_API_URL"
+          echo "NEXT_PUBLIC_RECAPTCHA_KEY: $NEXT_PUBLIC_RECAPTCHA_KEY"
