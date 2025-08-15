@@ -32,9 +32,6 @@ export default function ContactForm({
     }
     try {
       const token = await executeRecaptcha("contact_form");
-
-      console.log("Recaptcha token:", token);
-
       const url = !!api ? `${api}/api/contact` : "/api/contact";
       const res = await fetch(url, {
         method: "POST",
