@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
   return (
     <GoogleReCaptchaProvider
-      reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? ""}
+      reCaptchaKey="6LeOGKcrAAAAAFNexjv6LY3m7EkGTOoL6ZMzt5sb"
       scriptProps={{
         async: true,
         defer: true,
