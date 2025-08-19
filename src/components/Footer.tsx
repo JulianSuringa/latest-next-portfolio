@@ -40,7 +40,12 @@ export default function Footer() {
         <small className="text-color-gray-500 text-sm mt-4">
           Copyright ©2025 All rights reserved
         </small>
-        <Link href={`/privacy-policy`}>privacy policy</Link>
+        <Link
+          href={`/privacy-policy`}
+          className="transition-colors hover:text-orange-400 "
+        >
+          privacy policy
+        </Link>
       </div>
     </footer>
   );

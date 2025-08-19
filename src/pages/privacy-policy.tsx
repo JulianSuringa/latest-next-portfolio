@@ -12,8 +12,8 @@ export default function PrivacyPolicyPage() {
           content="Privacy Policy for the contact page of my portfolio website."
         />
       </Head>
-      <main className="max-w-3xl mx-auto px-4 py-10 text-gray-800">
-        <h1 className="text-3xl font-bold mb-6 mx-auto text-center">
+      <main className="max-w-3xl mx-auto px-4 py-10 text-foreground">
+        <h1 className="text-2xl font-bold mb-6 mx-auto text-center">
           Privacy Policy
         </h1>
         <p className="mb-10 text-center">
@@ -96,7 +96,7 @@ export default function PrivacyPolicyPage() {
             To exercise these rights, please contact me at:{" "}
             <a
               href="mailto:juliansuringa@gmail.com"
-              className="text-blue-600 underline"
+              className="text-blue-600 underline transition-colors hover:text-orange-400"
             >
               juliansuringa@gmail.com
             </a>
@@ -118,7 +118,7 @@ export default function PrivacyPolicyPage() {
           Policy, you can reach me at{" "}
           <a
             href="mailto:juliansuringa@gmail.com"
-            className="text-blue-600 underline"
+            className="text-blue-600 underline transition-colors hover:text-orange-400"
           >
             juliansuringa@gmail.com
           </a>
@@ -126,7 +126,10 @@ export default function PrivacyPolicyPage() {
         </p>
 
         <div className="mt-8">
-          <Link href="/" className="text-blue-600 underline">
+          <Link
+            href="/"
+            className="text-blue-600 underline transition-colors hover:text-orange-400"
+          >
             ← Back to Home
           </Link>
         </div>
